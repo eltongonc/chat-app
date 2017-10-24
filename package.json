@@ -1,0 +1,33 @@
+{
+  "name": "real-time-web",
+  "version": "0.0.1",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "gulp",
+    "ngrok": "ngrok http 3000",
+    "lint": "gulp lint"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "express-handlebars": "^3.0.0",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {
+    "eslinter": "^3.2.1",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-livereload": "^3.8.0",
+    "gulp-nodemon": "^2.0.2",
+    "gulp-plumber": "^1.0.0",
+    "gulp-sass": "^3.0.0",
+    "ngrok": "^2.2.6",
+    "nodemon": "^1.11.0",
+    "pre-commit": "^1.2.2"
+  }
+}

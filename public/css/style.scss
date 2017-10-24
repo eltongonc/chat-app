@@ -1,0 +1,377 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
+@mixin font-bold {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+}
+@mixin font {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+$black: #000;
+$dark: #1a1a1a;
+$second-color: #EC6958;
+$blue: #00b0ff;
+$bg: #7BC6FF;
+$grey: #999;
+$light: #e6e6e6;
+$white: #fff;
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: $bg;
+    background-image: linear-gradient($bg,$second-color);
+    display: block;
+    margin: 0;
+    padding: 0;
+    @include font;
+    @media (min-width: 50em) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.container {
+    height: 100%;
+    display: block;
+    @media (min-width: 50em) {
+        width: 95%;
+        height: 95%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1em;
+        overflow: hidden;
+        box-shadow: 0 0 0.5em lighten(black, 50%);
+    }
+    .left {
+        height: 12vh;
+        border: 1px solid $light;
+        background-color: $white;
+        width: 100%;
+        @media (min-width: 50em) {
+            height: 100%;
+            width: 25%;
+        }
+        .username {
+            position: relative;
+            width: 100%;
+            padding: 0.6em;
+            border-bottom: 1px solid #ededed;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            @media (min-width: 50em) {
+                flex-wrap: nowrap;
+                padding: 1.6em;
+            }
+            &.hidden {
+                padding: 0;
+            }
+        }
+        input {
+            width: 188px;
+            height: 4em;
+            padding: 0 0.8em;
+            border: 1px solid $light;
+            background-color: #eceff1;
+            border-radius: 1em;
+            @media (min-width: 50em) {
+                width: 75%;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        .enter {
+            display: block;
+            width: 4em;
+            height: 4em;
+            margin-left: 1em;
+            border: 0.1em solid $light;
+            background-color: $second-color;
+            color: $white;
+            border-radius: 50%;
+        }
+        .people {
+            padding: 0;
+            margin: 0;
+            overflow: scroll;
+            display: flex;
+            @media (min-width: 50em) {
+                height: 75%;
+                display: block;
+            }
+            .person {
+                padding: 1em;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                align-items: center;
+                @media (min-width: 50em) {
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    padding: 12px 10% 26px;
+                    cursor: pointer;
+                    background-color: $white;
+                    &:after {
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        display: block;
+                        width: 80%;
+                        height: 1px;
+                        content: '';
+                        background-color: $light;
+                        transform: translate(-50%, 0);
+                    }
+                    &.active,&:hover {
+                        margin-top: -1px;
+                        margin-left: -1px;
+                        padding-top: 13px;
+                        border: 0;
+                        background-color: $second-color;
+                        width: calc(100% + 2px);
+                        padding-left: calc(10% + 1px);
+                        span {
+                            color: $white;
+                            background: transparent;
+                        }
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+                img {
+                    width: 3em;
+                    height: 3em;
+                    border-radius: 50%;
+                    @media (min-width: 50em) {
+                        float: left;
+                        width: 40px;
+                        height: 40px;
+                        margin-right: 12px;
+                        border-radius: 50%;
+                    }
+                }
+                .name {
+                    font-size: 0.8em;
+                    line-height: 22px;
+                    color: $dark;
+                }
+                .time {
+                    display: none;
+                    @media (min-width: 50em) {
+                        display: block;
+                        font-size: 14px;
+                        position: absolute;
+                        top: 16px;
+                        right: 10%;
+                        padding: 0 0 5px 5px;
+                        color: $grey;
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+        section{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 0.1em solid $light;
+            p {
+                color: #999;
+            }
+        }
+    }
+    .right {
+        position: relative;
+        width: 100%;
+        height: 88vh;
+        background-color: $white;
+        @media (min-width: 50em) {
+            position: relative;
+            height: 100%;
+            width: 75%;
+        }
+        .top {
+            width: 100%;
+            height: 3em;
+            background-color: $second-color;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            @media (min-width: 50em) {
+                height: 6em;
+            }
+            span {
+                font-size: 15px;
+                color: $grey;
+                .name {
+                    color: $dark;
+                }
+            }
+            h1 {
+                color: $white;
+            }
+        }
+        div {
+            display: inline-block;
+            width: 100%;
+            height: auto;
+        }
+        .chat {
+            overflow: scroll;
+            padding: 1em 2em;
+            border-width: 1px 1px 1px 0;
+            border-style: solid;
+            border-color: $light;
+            height: 75%;
+            margin:0;
+            @media (min-width: 50em) {
+                padding: 0 35px;
+            }
+        }
+        .write {
+            margin: auto;
+            display: flex;
+            align-items: center;
+            border: 1px solid $white;
+            background-color: $second-color;
+            width: 90%;
+            border-radius: .45em;
+            bottom: 0.3em;
+            margin-top: 1em;
+            @media (min-width: 50em) {
+                position: absolute;
+                bottom: 29px;
+                left: 30px;
+            }
+            input {
+                font-size: 16px;
+                width: 83%;
+                padding: 1em;
+                border: 0;
+                outline: none;
+            }
+            .send {
+                border: none;
+                background: none;
+                font-size: 1em;
+                margin: auto;
+                color: $white;
+            }
+        }
+        .bubble {
+            font-size: 1.2em;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 8px;
+            padding: .7em;
+            border-radius: 5px;
+            &:before {
+                position: absolute;
+                top: 19px;
+                display: block;
+                width: 8px;
+                height: 6px;
+                content: '\00a0';
+                transform: rotate(29deg) skew(-35deg);
+            }
+            &.you {
+                color: $white;
+                background-color: $second-color;
+                max-width: 100%;
+                word-wrap: break-word;
+                &:before {
+                    left: -3px;
+                    background-color: $second-color;
+                }
+            }
+            &.them {
+                float: right;
+                color: $dark;
+                background-color: #eceff1;
+                align-self: flex-end;
+                &:before {
+                    right: -3px;
+                    background-color: #eceff1;
+                }
+            }
+            span {
+                display: block;
+                margin-bottom: 0.5em;
+                font-size: 0.8em;
+            }
+            time {
+                margin-top: 0.5em;
+                font-size: 0.8em;
+            }
+        }
+        .conversation-start {
+            position: relative;
+            width: 100%;
+            margin-bottom: 27px;
+            text-align: center;
+            time {
+                font-size: 14px;
+                display: inline-block;
+                color: $grey;
+                @media (min-width: 50em) {
+                    &:before,
+                    &:after {
+                        position: absolute;
+                        top: 10px;
+                        display: inline-block;
+                        width: 30%;
+                        height: 1px;
+                        content: '';
+                        background-color: $light;
+                    }
+
+                    &:before {
+                        left: 0;
+                    }
+                    &:after {
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+input:disabled {
+    cursor: not-allowed;
+    background-color: #eceff1;
+}
+time {
+    display: block;
+}
+
+li {
+    list-style: none;
+}
+
+.hidden{
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: 0.3s;
+}
