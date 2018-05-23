@@ -1,3 +1,5 @@
+[![BCH compliance](https://bettercodehub.com/edge/badge/eltongonc/chat-app?branch=master)](https://bettercodehub.com/)
+
 # Chat app
 The Chat app is a web-application that lets users chat with random visitors.
 
